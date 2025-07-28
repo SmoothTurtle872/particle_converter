@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Paricle Converter</h1>
+        <h5>Made by SmoothTurtle872</h3>
+    </header>
+    
+    <div class="content-wrapper">
+        <ul id="options">
+            <li><label>Image: </label><input type="file" id="image-file" title="Image" accept="image/*"></li>
+            <li><label>Width: </label><input class="small" type="number" id="width"> | <label>Height: </label><input class="small" type="number" id="height"></li>
+            <li><label>Particles Per Pixel: </label><input class="small" type="number" value="1"></li>
+            <li><label>Overide Particle: </label><input type="checkbox" id="overide-particle"> <label class="hidden" id="overide-particle-label">| Particle: </label><input id="overide-particle-input" list="particles" class="hidden"></li>
+            <li><label>Overide Scale: </label><input type="checkbox" id="overide-scale"> <label class="hidden" id="overide-scale-label">| Scale: </label><input id="overide-scale-input" type="number" class="hidden"></li>
+            <li><label>Preview Scale: </label><input type="range" min="10" max="1000" id="preview-scale"></li>
+            <li><button id="convert">Convert</button></li>
+        </ul>
+        <div class="dsiplay-wrapper">
+            <img id="display"><br>
+        </div>
+    </div>
+    <br>
+    <details id="output-window">
+        <summary class="inverted-top-bar">Output</summary>
+        <textarea readonly="" id="output"></textarea>
+        
+    </details>
+    <canvas id="image-reader" class="hidden"></canvas>
+    <script src="app.js"></script>
+    
+    
+</body>
+<datalist id="particles">
+    <option>angry_villager</option> 
+    <option>ash</option> 
+    <option>bubble</option>
+    <option>bubble_column_up</option>
+    <option>bubble_pop</option>
+    <option>campfire_cosy_smoke</option>
+    <option>campfire_signal_smoke</option>
+    <option>cherry_leaves</option>
+    <option>cloud</option>
+    <option>composter</option>
+    <option>crimson_spore</option>
+    <option>crit</option> 
+    <option>current_down</option> 
+    <option>damage_indicator</option> 
+    <option>dolphin</option>
+    <option>dragon_breath</option>
+    <option>dripping_dripstone_lava</option>
+    <option>dripping_dripstone_water</option>
+    <option>dripping_honey</option>
+    <option>dripping_lava</option>
+    <option>dripping_obisidian_tear</option>
+    <option>dripping_water</option>
+    <option>egg_crack</option>
+    <option>elder_guardian</option> 
+    <option>electric_spark</option> 
+    <option>enchant</option> 
+    <option>enchanted_hit</option>
+    <option>end_rod</option>
+    <option>explosion</option>
+    <option>explosion_emitter</option>
+    <option>falling_dripstone_lava</option>
+    <option>falling_dripstone_water</option>
+    <option>falling_dust</option>
+    <option>falling_honey</option>
+    <option>falling_lava</option>
+    <option>falling_nectar</option> 
+    <option>falling_obsidian_tear</option> 
+    <option>falling_spore_blossom</option> 
+    <option>falling_water</option>
+    <option>firefly</option>
+    <option>firework</option>
+    <option>fishing</option>
+    <option>flame</option>
+    <option>flash</option>
+    <option>glow</option>
+    <option>glow_squid_ink</option>
+    <option>gust</option>
+    <option>gust_emitter_large</option> 
+    <option>gust_emitter_small</option> 
+    <option>happy_villager</option> 
+    <option>heart</option>
+    <option>infested</option>
+    <option>landing_honey</option>
+    <option>landing_lava</option>
+    <option>landing_obsidian_tear</option>
+    <option>large_smoke</option>
+    <option>lava</option>
+    <option>mycelium</option>
+    <option>nautilus</option>
+    <option>note</option>
+    <option>ominous_spawning</option> 
+    <option>pale_oak_leaves</option> 
+    <option>poof</option>
+    <option>portal</option>
+    <option>raid_omen</option>
+    <option>rain</option>
+    <option>reverse_portal</option>
+    <option>scrape</option>
+    <option>sculk_charge</option>
+    <option>sculk_charge_pop</option>
+    <option>sculk_soul</option>
+    <option>shriek</option> 
+    <option>small_flame</option> 
+    <option>small_gust</option> 
+    <option>smoke</option>
+    <option>sneeze</option>
+    <option>snowflake</option>
+    <option>sonic_boom</option>
+    <option>soul</option>
+    <option>soul_fire_flame</option>
+    <option>spit</option>
+    <option>splash</option>
+    <option>spore_blossom_air</option>
+    <option>squid_ink</option> 
+    <option>sweep_attack</option> 
+    <option>totem_of_undying</option> 
+    <option>trail</option>
+    <option>trail_omen</option>
+    <option>trail_spawner_detection</option>
+    <option>trail_spawner_detection_ominous</option>
+    <option>underwater</option>
+    <option>vault_connection</option>
+    <option>vibration</option>
+    <option>warped_spore</option>
+    <option>wax_off</option>
+    <option>wax_on</option>  
+    <option>white_ash</option> 
+    <option>white_smoke</option> 
+    <option>witch</option>
+</datalist>
+</html>
