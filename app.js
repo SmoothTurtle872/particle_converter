@@ -85,6 +85,7 @@ const readImageData = function(imgWidth,imgHeight,data){
     width.value = imgWidth
     height.value = imgHeight
     resizeDisplay()
+    pixelData = []
 
     for (let i = 0; i < imgHeight; i++){
         pixelData.push([])
