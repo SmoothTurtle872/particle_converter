@@ -20,8 +20,10 @@ let imgWidth
 let imgHeight
 
 let pixelData = []
+let commands = []
 
 const convert = function(){
+    commands = []
     let particle = "dust"
     if (overideParticle.checked){
         particle = overideParticleInput.value
@@ -31,13 +33,16 @@ const convert = function(){
     let output = ""
     for (let i = 0; i < pixelData.length; i++){
         for (let j = 0; j < pixelData[i].length; j++){
-            if (overideParticle.checked){
-                output = `${output}\nparticle ${particle} ^${j * xParticleDist} ^${i * yParticleDist} ^ 0 0 0 0 1`
-            } else{
-                output = `${output}\nparticle ${particle}{scale:[${pixelData[i][j][0]},${pixelData[i][j][1]},${pixelData[i][j][2]}],scale:${pixelData[i][j][3]}} ^${j * xParticleDist} ^${i * yParticleDist} ^ 0 0 0 0 1`
+            if (pixelData[i][j][3] > 0){
+                if (overideParticle.checked){
+                   commands.push(`\nparticle ${particle} ^${j * xParticleDist} ^${i * yParticleDist} ^ 0 0 0 0 1`)
+                } else{
+                    commands.push(`particle ${particle}{scale:[${pixelData[i][j][0]},${pixelData[i][j][1]},${pixelData[i][j][2]}],scale:${pixelData[i][j][3]}} ^${j * xParticleDist} ^${i * yParticleDist} ^ 0 0 0 0 1`)
+                }
             }
         }
     }
+    output = commands.join("\n")
 
     outputBox.value = output
     
