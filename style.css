@@ -1,15 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&display=swap');
 
-
+:root{
+    --bg-dark: hsl(0,0%,10%);
+    --bg-medium: hsl(0,0%,20%);
+    --bg-light: hsl(0,0%,30%);
+    --accent-main: hsl(203, 70%, 30%);
+}
+/*Fonts*/
 .pixel-font-400{
     font-family: "Bitcount Prop Single";
     font-weight: 400;
 }
 
-header{
-    background-color: #2e2e2e;
+body{
+    margin: 0;
+    background-color: var(--bg-dark);
+    color: white;
+    
+}
+
+/*Headder*/
+.header{
+    background-color: var(--bg-medium);
     padding-left: 10px;
-    color: #0e5e7d;
+    color: var(--accent-main);
      
 }
 header h1{
@@ -20,16 +34,19 @@ header h5{
     margin: 0;
     padding-bottom: 5px;
 }
-body{
-    margin: 0;
-    background-color: #1e1e1e;
-    color: white;
-    
-}
 
+/*Output*/
+.output-topbar{
+    border-radius: 1.5rem;
+    height: 15px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    text-align: center;
+    padding: 10px;
+}
 #output{
-    background-color: #1e1e1e;
-    border: #1e1e1e dotted;
+    background-color: var(--bg-dark);
+    border: none;
     border-radius: 1.5rem;
     height: 80%;
     width: 90%;
@@ -37,36 +54,15 @@ body{
     margin-top: 1%;
     color: white;
 }
-
 #output:focus{
-    border: #0e5e7d dashed;
+    border: var(--accent-main) solid;
     outline: none;
 }
-
-.content-wrapper{
-    display: flex;
-    columns: 2;
-    width: 100%;
-    height:fit-content;
-}
-#options{
-    list-style: none;
-    padding: 10px;
-}
-
-.hidden{
-    display: none;
-}
-
-.small{
-    width:50px;
-}
-
 #output-window{
     position: absolute;
-    background-color: #2e2e2e;
+    background-color: var(--bg-light);
     border-radius: 1.5rem;
-    box-shadow: #0e5e7d 0px 5px 20px;
+    box-shadow: var(--accent-main) 0px 5px 20px;
     width: 500px;
     height: 25px;
     bottom: 10%;
@@ -79,15 +75,33 @@ body{
     top: 40%;
     border-bottom-left-radius: 1.5rem;
     border-bottom-right-radius: 1.5rem;
-    box-shadow: #0e5e7d 0px 0px 10px;
+    box-shadow: var(--accent-main) 0px 0px 10px;
 }
 
-.inverted-top-bar{
-    background-color: #1e1e1e;
-    border-radius: 1.5rem;
-    height: 15px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    text-align: center;
+
+/*Options & Preview*/
+.content-wrapper{
+    display: flex;
+    columns: 2;
+    width: 100%;
+    height:fit-content;
+}
+#options{
+    list-style: none;
     padding: 10px;
+}
+
+
+
+.small{
+    width:50px;
+}
+
+
+
+
+
+/*Misc*/
+.hidden{
+    display: none;
 }
