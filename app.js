@@ -37,7 +37,7 @@ const convert = function(){
                 if (overideParticle.checked){
                    commands.push(`\nparticle ${particle} ^${j * xParticleDist} ^${i * yParticleDist} ^ 0 0 0 0 1`)
                 } else{
-                    commands.push(`particle ${particle}{scale:[${pixelData[i][j][0]},${pixelData[i][j][1]},${pixelData[i][j][2]}],scale:${pixelData[i][j][3]}} ^${j * xParticleDist} ^${i * yParticleDist} ^ 0 0 0 0 1`)
+                    commands.push(`particle ${particle}{color:[${pixelData[i][j][0]},${pixelData[i][j][1]},${pixelData[i][j][2]}],scale:${overideScale.checked ? overideScaleInput.value : pixelData[i][j][3]}} ^${j * xParticleDist} ^${i * yParticleDist} ^ 0 0 0 0 1`)
                 }
             }
         }
