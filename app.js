@@ -12,6 +12,7 @@ const overideScale = document.getElementById("overide-scale")
 const overideScaleLabel = document.getElementById("overide-scale-label")
 const overideScaleInput = document.getElementById("overide-scale-input")
 const convertButton = document.getElementById("convert")
+const particlesPerPixel = document.getElementById("particles-per-pixel")
 
 let scaleFactor = 100
 previewScale.value = 100
@@ -28,16 +29,17 @@ const convert = function(){
     if (overideParticle.checked){
         particle = overideParticleInput.value
     }
-    let xParticleDist = width.value / imgWidth
-    let yParticleDist = height.value / imgHeight
+    let xParticleDist = (width.value / imgWidth) / particlesPerPixel.value 
+    let yParticleDist = (height.value / imgHeight) / particlesPerPixel.value
     let output = ""
-    for (let i = 0; i < pixelData.length; i++){
-        for (let j = 0; j < pixelData[i].length; j++){
-            if (pixelData[i][j][3] > 0){
+    for (let i = 0; i < pixelData.length; i += 1 / particlesPerPixel.value){
+        console.log(i)
+        for (let j = 0; j < pixelData[Math.floor(i)].length; j += 1 / particlesPerPixel.value){
+            if (pixelData[Math.floor(i)][Math.floor(j)][3] > 0){
                 if (overideParticle.checked){
                    commands.push(`\nparticle ${particle} ^${j * xParticleDist} ^${i * yParticleDist} ^ 0 0 0 0 1`)
                 } else{
-                    commands.push(`particle ${particle}{color:[${pixelData[i][j][0]},${pixelData[i][j][1]},${pixelData[i][j][2]}],scale:${overideScale.checked ? overideScaleInput.value : pixelData[i][j][3]}} ^${j * xParticleDist} ^${i * yParticleDist} ^ 0 0 0 0 1`)
+                    commands.push(`particle ${particle}{color:[${pixelData[Math.floor(i)][Math.floor(j)][0]},${pixelData[Math.floor(i)][Math.floor(j)][1]},${pixelData[Math.floor(i)][Math.floor(j)][2]}],scale:${overideScale.checked ? overideScaleInput.value : pixelData[Math.floor(i)][Math.floor(j)][3]}} ^${j * xParticleDist} ^${i * yParticleDist} ^ 0 0 0 0 1`)
                 }
             }
         }
